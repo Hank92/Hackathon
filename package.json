@@ -1,0 +1,32 @@
+{
+  "name": "giruki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scraping.js",
+  "engines": {
+    "node": "5.9.1"
+  },
+   "scripts": {
+    "start": "forever start --minUptime 1000 --spinSleepTime 1000 app.js",
+    "stop":  "forever stop app.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "latest",
+    "cheerio": "latest",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.0.0",
+    "ejs": "^2.4.1",
+    "expres": "latest",
+    "express": "^4.13.4",
+    "express-session": "~1.0.0",
+    "forever": "^0.15.2",
+    "method-override": "latest",
+    "mongoose": "latest",
+    "mongoose-paginate": "latest",
+    "morgan": "~1.0.0",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "request": "latest"
+  }
+}

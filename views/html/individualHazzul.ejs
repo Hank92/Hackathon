@@ -1,0 +1,151 @@
+  <!doctype html>
+<html>
+<head>
+    <title> 하즐 - <%= issuepostModel.title %> </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="naver-site-verification" content="8672f68ec19974757430dcc41aa887462bd2a8c5"/>
+    <meta name="google-site-verification" content="UFlAZBpLslwZH5RF8Z4WSu6fiCM-MXNzOvcLsyDh2_Y" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='keyword' content="하즐, 하루, 즐거움, 짤, hazzul, 웃긴, 예능, 아는 형님, 드라마, 미드, haz, 영어 짤 ">
+    <meta name="description" content="<%= issuepostModel.title %>">
+    <meta name="author" content ="하즐">
+    <meta name="title" content="<%= issuepostModel.title %>">
+    <meta property = "og:url" content ="http://www.hazzul.com/hazzul/<%= issuepostModel.id %>">
+    <meta property = "og:title" content ="<%= issuepostModel.title %>">
+    <meta property = "og:type" content ="website">
+    <meta property = "og:site_name" content ="하즐">
+    <meta property = "og:image" content ="<%= issuepostModel.img_url[0] %>">
+    <link rel='stylesheet' href='/css/individualHazzulMain.css'>
+    <link rel='shortcut icon' href='/images/Favicon.ico' type='image/x-icon'/ >
+
+
+
+</head>
+
+<body>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+ <div class="col-sm-12 col-md-12 affix-content">
+    <div class="container">
+      
+    <header>
+      <h2><a href = "/"><img src="/images/Logo2.jpg" alt="HTML5 Icon" style="width:10%;height:auto;" ></a>&nbsp;&nbsp;<%= issuepostModel.title %></h2>
+    </header>
+    </br>
+     
+    <div class ="thumbnail">
+    <div style ="float:right">  <i class="fa fa-eye" aria-hidden="true"></i> 조회수: <%= issuepostModel.usernumClicks + issuepostModel.numClicks %>&nbsp; &nbsp; <i class="fa fa-comment" aria-hidden="true"></i>댓글: <%= issuepostModel.comments.length + issuepostModel.userComments.length %> &nbsp; </div> 
+    <br><br>
+    <% for( var i = 0; i < issuepostModel.img_url.length; i++ ) { %> 
+         <img src = "<%= issuepostModel.img_url[i] %>"  class="img-responsive">     
+         </br></br>   
+         <% }%> 
+
+         <% for( var i = 0; i < issuepostModel.video_url.length; i++ ) { %> 
+         <div class="embed-responsive embed-responsive-16by9">
+            <iframe class ="embed-responsive-item" src="<%= issuepostModel.video_url[i] %>"quality="high" bgcolor="#000000" width="500" height="400" name="NEXT4896413" align="middle" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash"></iframe> </br>
+          </div>
+            <% } %>  
+
+            <% for( var i = 0; i < issuepostModel.img_comment.length; i++ ) { %> 
+        <center>
+          <b><font size ="3" color="#000000"> <%= issuepostModel.img_comment[i] %></b>
+        </center>
+ 
+         <% }%> 
+
+        <div class ="text-center">
+<div class="fb-share-button " data-href="www.hazzul.com/hazzul/<%= issuepostModel.id%>" data-layout="button_count" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="www.hazzul.com/hazzul/<%= issuepostModel.id%>">공유하기</a></div>
+</br></br>
+<a href = "/"><button class="btn btn-danger" style ="center">하즐 홈으로 가기</button></a></br>
+
+<h3><font color ="#e50658" size="6">추천!!</font></h3>
+
+         <a href="/hazzul/<%= previousModel[0].id %>"><font color ="#000000" size="6"><%= previousModel[0].title %> </font>  
+      
+
+
+</div>
+</br>
+    </div></div>
+ <br>
+  <div class="container">
+<div class="row">
+<div class="col-sm-12">
+
+<div class="panel">
+<div class="panel-heading" style ="background-color: #222222;"><b><font size = "5" style= "color: #FFFFFF" ><i class="fa fa-comment-o" aria-hidden="true"></i> 댓글 '<%= issuepostModel.comments.length + issuepostModel.userComments.length %>' </font></b></div>
+        <div class ="panel-body">
+   <article class="comment">
+      <a class="comment-img" href="#non">
+        <img src="/images/Logo2.jpg" alt="HTML5 Icon" width="50" height="40" >
+      </a>
+      </a>
+      <div class="comment-body">
+        <form name ="myForm" role="form" method="post" action="/<%= issuepostModel.id %>/post/hazzul"> <!--This was the main issue!! get the id of the postmodel and pass it when I post something-->
+    <div class="form-group">
+    <div class ="text">
+      <textarea class="form-control" type = "text" name="userPost" placeholder="댓글 달아주세요" rows="5" id="comment" required></textarea>
+    </div></div>
+    <br>
+    <a href = "/hazzul/<%= issuepostModel.id%>"> <button type="submit" class="btn btn-danger btn-lg " style ="float:right">댓글 달기</button></a>
+  </form>
+      </div>
+    </article><br>
+
+    
+    <% for( var i = 0; i < issuepostModel.comments.length; i++ ) { %>
+    <div class="comment">
+      <a class="comment-img" href="#non">
+        <img src="/images/Logo2.jpg" alt="HTML5 Icon" width="50" height="40" >
+      </a>
+      <div class="comment-body">
+        <div class="text">
+          <b><font size ="5" color="#000000"><%= issuepostModel.comments[i].content %></b>
+        </div>
+      </div>
+      </div>
+       <% }%>
+
+       <% for( var i = 0; i < issuepostModel.userComments.length; i++ ) { %>
+
+     <div class="comment">
+      <a class="comment-img" href="#non">
+        <img src="/images/Logo2.jpg" alt="HTML5 Icon" width="50" height="40" >
+      </a>
+      <div class="comment-body">
+        <div class="text">
+         <b><font size ="5" color="#000000"><%= issuepostModel.userComments[i].userPost %></b>
+        </div>
+        
+      </div>
+      </div>
+       <% }%>
+
+</div>
+
+            
+</div>
+</div>
+</div>               
+</div>
+</br>   
+
+
+       
+</body>
+
+</html>
