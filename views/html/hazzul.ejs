@@ -67,61 +67,90 @@ $('a.back-to-top').click(function() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
 
-        <div class="navbar-header">
-            <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-             <a class="navbar-brand myLogo" href="/" >
+<nav class="navbar-inverse navbar-default" style=" background: #262626;">
+  <div class="container">
+    <ul class="nav navbar-top" >
+		<div class="navbar-header">   
+			<button type="navbar-toggler" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+            <a class="navbar-brand myLogo" href="/" >
                 <img src="/images/Logo1.jpg">
-            </a>
+            </a>	
         </div>
-        
-        <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
-            
-      <form class="navbar-form navbar-left" role="search" action="/" method="get">
-       
-            <input type="text" name="search" id="search" type="text" class="search-query form-control" class="form-control" placeholder="검색하기">
-            <button id ="searchbutton" style=" border: none;
-  background: #e1e4ea;
-  height: 40px;
-  width: 40px;
-  color: #4f5b66;
-  border-radius: 5px;
-  font-size: 10pt;" class="icon"><i class="fa fa-search"></i></button>
-         
-      </form>
+        		
+        <div class="collapse navbar-collapse" id="navbar">
+			<ul class="nav navbar-nav navbar-right">
+				<form class="navbar-form navbar-left" role="search" action="/" method="get">
+					<input type="text" name="search" id="search" type="text" class="search-query form-control" placeholder="검색하기">
+					<button id ="searchbutton" style=
+						" border: none; 
+						bac kground: #e1e4ea; 
+						height: 40px; 
+						width: 40px; 
+						color: #4f5b66; 
+						border-radius: 5px; 
+						font-size: 10pt;" class="icon">
+						<i class="fa fa-search"></i>
+					</button>    
+				</form>
 
-      <div class="navbar-form navbar-right" >
+				<div class="navbar-form navbar-left" >
+					<a href ="">
+					<button style=
+						" border: none; background: #222222;
+						height: 40px;
+						width: 40px;
+						color: #4f5b66;
+						opacity: none;
+						font-size: 20pt;" class="icon">
+						<i class="fa fa-facebook-square" aria-hidden="true"></i>
+					</button></a>
 
-      <a href =""><button style=" border: none; background: #222222;
-  height: 40px;
-  width: 40px;
-  color: #4f5b66;
-  opacity: none;
-  font-size: 20pt;" class="icon"><i class="fa fa-facebook-square" aria-hidden="true"></i></button></a>
-        
+					<button data-toggle="modal" data-target="#aboutModal" style=
+						" border: none; 
+						background: #222222;
+						height: 40px;
+						width: 40px;
+					color: #4f5b66;
+						opacity: none;
+						font-size: 20pt;" class="icon">
+						<i class="fa fa-question-circle" aria-hidden="true"></i>
+					</button> 
+				</div> 
+			</ul>
+			
+			<nav class="navbar-default nav-bottom" style="background: #262626;">
+				<ul class="nav navbar-nav">
+					<li class="current-item"><a href="#">실시간 베스트</a></li>
+					<li><a href="#">주간 베스트</a></li>
+					<li><a href="#">실시간 인기글</a></li>
+					<li><a href="#">야짤</a></li>
+					<li><a href="#">정치</a></li>
+					<li><a href="#">유머</a></li>
+					<li><a href="#">GIF</a></li>
+					<li><a href="#">기타</a></li>
+				</ul>
+			</nav>
+		</div>
+    </ul>
+  </div>
+</nav>
 
-
-  <button data-toggle="modal" data-target="#aboutModal" style=" border: none; background: #222222;
-  height: 40px;
-  width: 40px;
-  color: #4f5b66;
-  opacity: none;
-  font-size: 20pt;" class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></button> &nbsp; &nbsp;
-  
-      </div>
-      
-    </div>
-
-    </div>
-</div>
-
+			
+<script>
+	jQuery(document).ready(function() {
+		jQuery('.toggle-nav').click(function(e) {
+			jQuery(this).toggleClass('active');
+			jQuery('.menu ul').toggleClass('active');
+			e.preventDefault();
+		});
+	});
+</script>
 
 
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
