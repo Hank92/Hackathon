@@ -1,6 +1,6 @@
 @media (min-width: 1280px){
 
- html,body{
+html,body{
     background-color: #333333;
     height: auto;
   }
@@ -19,19 +19,30 @@
     margin-right: 0;    
   } 
 
+ 
   .affix-content{
-    background-color:#333333;
+	background-color:#333333;
+    overflow: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+  }  
 
-  } 
+  .affix-content .container {
+    width: 1220px;
+    overflow: auto;
+    padding-top :10px;
+  }
 
+  .affix-content .container .page-header{
+    margin-top: 0;
+  }
 
-
-  .thumbnail { background-color: #484848   ; float:center; padding : 1%; width:200px; height:auto; overflow: hidden; }
+ .thumbnail { background-color: #484848; float:left; padding : 1%; width:200px; height:auto; overflow: hidden; }
 .thumbnail img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnail {
-   width: 203px;
-   height: 305px;
+   width: 195px;
+   height: 280px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -43,11 +54,11 @@
 
  }
 
-   .thumbnailHot { background-color: #484848   ; float:center; padding : 1%; width:200px; height:auto; overflow: hidden; }
+  .thumbnailHot { background-color: #484848; float:left; padding : 1%; width:200px; height:auto; overflow: hidden; }
 .thumbnailHot img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnailHot {
-   width: 203px;
+   width: 195px;
    height: 275px;
    overflow: auto;
    margin: 20px;
@@ -60,11 +71,11 @@
 
  }
 
-   .thumbnailBest { background-color: #484848   ; float:center; padding : 1%; width:200px; height:auto; overflow: hidden; }
+.thumbnailBest { background-color: #484848; float:left; padding : 1%; width:200px; height:auto; overflow: hidden; }
 .thumbnailBest img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnailBest {
-   width: 203px;
+   width: 195px;
    height: 275px;
    overflow: auto;
    margin: 20px;
@@ -77,28 +88,44 @@
 
  }
 
-
  .text-center {
-     font-size: 12px;
-     margin: 2px;
+     font-size: 11px;
+     margin: 0px;
+      }
+  .pagelayout{
+     font-size: 22px;
+     margin: 12px;
       }
 
-h1 a{
-  color: rgb(102, 189, 221);
-  font-size: 55px;
-  font-family: Book Antiqua, serif;
+h1 {
+        text-align: center;
+      }
+h1 span{
+  color: rgb(240,248,255);
+  font-size: 75px;
   text-decoration: none;
+  background-color: none;
+}
+
+h1 a {
+  color:rgb(240,248,255);
+  font-size: 85px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  background-color: none;
 }
 h5  {
-  color: rgb(248,248,248) ;
-  font-family: Book Antiqua, serif;
+  color: rgb(255, 255, 255) ;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:14px;
+  font-weight: bold;
 }
 h7 {
-  color:rgb(248,248,248) ;
+  color:rgb(255, 255, 255) ;
   font-family: Book Antiqua, serif;
+  font-size:10px;
+
 }
-
-
 
 .navbar-brand {
   padding: 0px;
@@ -536,7 +563,7 @@ h7 {
 }
 
 }
-
+/*
 @media (min-width: 1220px){
   
     .affix-content{
@@ -645,7 +672,7 @@ h7 {
 
 }
 
-}
+}*/
 
 .thumbnail img {
     width: 100%;
@@ -864,4 +891,12 @@ ul.pagination li a:hover {
   text-align: center;
   display:inline-block;
   vertical-align:top;	
+}
+
+@media (max-width:767px) {
+    .navbar-inverse .dropdown-menu .radio label
+    {
+        color: #fff;
+        background-color: transparent;
+    }
 }
