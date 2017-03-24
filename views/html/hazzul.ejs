@@ -126,14 +126,28 @@ $('a.back-to-top').click(function() {
 			
 			<nav class="navbar-default nav-bottom" style="background: #262626;">
 				<ul class="nav navbar-nav">
-					<li class="current-item"><a href="#">하즐 베스트</a></li>
+					<li class="active"><a href="#">하즐 베스트</a></li>
 					<li><a href="#">주간 베스트</a></li>					
 					<li><a href="#">최근 인기글</a></li>
 					<li><a href="#">#야짤</a></li>
 					<li><a href="#">#정치</a></li>
 					<li><a href="#">#유머</a></li>
 					<li><a href="#">#GIF</a></li>
-					<li><a href="#">기타</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">기타 <span class="caret"></span></a>
+						<ul class="dropdown-menu" style=" background: #262626;">
+							<li><h6 class="dropdown-header">웹사이트</h6>
+							<li><a href="#"><font color="#9d9d9d">#FM코리아</font></a></li>
+							<li><a href="#"><font color="#9d9d9d">#DogDrip</font></a></li>
+							<li><a href="#"><font color="#9d9d9d">#딴지일보</font></a></li>
+							<li role="separator" class="divider"></li>
+							<li><h6 class="dropdown-header">취미</h6>
+							<li><a href="#"><font color="#9d9d9d">게임</font></a></li>
+							<li><a href="#"><font color="#9d9d9d">애니</font></a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#"><font color="#9d9d9d">비디오</font></a></li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -149,6 +163,10 @@ $('a.back-to-top').click(function() {
 			jQuery('.menu ul').toggleClass('active');
 			e.preventDefault();
 		});
+	});
+	jQuery(".nav a").hover(function(){
+		$(".nav").find(".active").removeClass("active");
+		$(this).parent().addClass("active");
 	});
 </script>
 
@@ -172,92 +190,96 @@ $('a.back-to-top').click(function() {
   </div>
 </div>
 
- </br> </br> </br>
-  <div class="col-sm-12 col-md-12 affix-content">
-    <div class="container">
-     
-           <!-- LOCAL INFORMATION -->
-            <div class="row ">
-            <div class ="text-center">
+</br> </br> </br>
+<div class="col-sm-12 col-md-12 affix-content">
+	<div class="container"> 
+		<!-- LOCAL INFORMATION -->
+        <div class="row">
+		<div class ="text-center">
+			<% for(var i = issuepostModels.length-1; i > -1 ; i--) { %>
+				<% if (i > 14 && i != 19) { %> 	
+				<a class="thumbnailHot" href="/hazzul/<%= issuepostModels[i].id %>" style="text-decoration: none;">
+					<h7><%= issuepostModels[i].posted.toLocaleDateString() %></h7>
+					<img class="img-responsive" src="<%= issuepostModels[i].img_url[0] || issuepostModels[i].img_url[1] || issuepostModels[i].video_url[1] %>" alt="이미지 로딩중...">
+					<div class="text-center">
+						<h5><%= issuepostModels[i].title %></h5>
+						<h7>
+							<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
+							<%=issuepostModels[i].userComments.length %>
+						</h7>&nbsp&nbsp
+						<h7>
+							<span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp
+							<%= issuepostModels[i].myClicks %>
+						</h7>&nbsp&nbsp                  
+						<b>
+							<span class="label label-danger">실시간 인기글</span>
+						</b>
+					</div>
+                </a>        
+				<% } %> 
 
-
-      <% for(var i = issuepostModels.length-1; i > -1 ; i--) { %>
-        
-             <% if (i > 14 && i != 19) { %> 
-             
-              <a class="thumbnailHot" href="/hazzul/<%= issuepostModels[i].id %>" style="text-decoration: none;">
-
-            <h7><%= issuepostModels[i].posted.toLocaleDateString() %></h7>
-                <img class="img-responsive" src="<%= issuepostModels[i].img_url[0] || issuepostModels[i].img_url[1] || issuepostModels[i].video_url[1] %>" alt="이미지 로딩중...">
-                <div class="text-center">
-                  <h5><%= issuepostModels[i].title %></h5>
-
-                   <h7><span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp<%=issuepostModels[i].userComments.length %></h7>&nbsp&nbsp
-                   <h7><span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp<%= issuepostModels[i].myClicks  %></h7>&nbsp&nbsp
-                   
-                   <b><span class="label label-danger">실시간 인기글</span></b>
-                </div>
+				<% if (i == 19) { %> 
+				<a class="thumbnailBest" href="/hazzul/<%= issuepostModels[i].id %>" style="text-decoration: none;">
+					<h7><%= issuepostModels[i].posted.toLocaleDateString() %></h7>
+					<img class="img-responsive" src="<%= issuepostModels[i].img_url[0] || issuepostModels[i].img_url[1] || issuepostModels[i].video_url[1] %>" alt="이미지 로딩중...">
+					<div class="text-center">
+						<h5><%= issuepostModels[i].title %></h5>
+						<h7>
+							<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
+							<%=issuepostModels[i].userComments.length %>
+						</h7>&nbsp&nbsp
+						<h7>
+							<span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp
+							<%= issuepostModels[i].myClicks %>
+						</h7>&nbsp&nbsp
+						<b>
+							<span class="label label-success">실시간 베스트</span>
+						</b>
+					</div>
                 </a>
-                    
-                  <% } %> 
+				<% } %>    
+			<% }%>
 
-
-
-            <% if (i == 19) { %> 
-
-            
-              <a class="thumbnailBest" href="/hazzul/<%= issuepostModels[i].id %>" style="text-decoration: none;">
-
-            <h7><%= issuepostModels[i].posted.toLocaleDateString() %></h7>
-                <img class="img-responsive" src="<%= issuepostModels[i].img_url[0] || issuepostModels[i].img_url[1] || issuepostModels[i].video_url[1] %>" alt="이미지 로딩중...">
-                <div class="text-center">
-                  <h5><%= issuepostModels[i].title %></h5>
-
-                   <h7><span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp<%=issuepostModels[i].userComments.length %></h7>&nbsp&nbsp
-                   <h7><span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp<%= issuepostModels[i].myClicks  %></h7>&nbsp&nbsp
-                    
-                  <b><span class="label label-success">실시간 베스트</span></b>
-                </div>
-                </a>
-
-
-            <% } %> 
-
-     
-       <% }%>
-
-
-
-
-
-<% for(var i = issuepostModel.length-1; i > -1 ; i--) { %>
-
-              <a class="thumbnail" href="/hazzul/<%= issuepostModel[i].id %>" style="text-decoration: none;">
-
-            <h7><%= issuepostModel[i].posted.toLocaleDateString() %></h7>
-                <img class="img-responsive" src="<%= issuepostModel[i].img_url[0] || issuepostModel[i].img_url[1] || issuepostModel[i].video_url[1] %>" alt="이미지 로딩중...">
-                <div class="text-center">
-                  <h5><%= issuepostModel[i].title %></h5>
-
-                   <h7><span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp<%=issuepostModel[i].userComments.length %></h7>&nbsp&nbsp
-                   <h7><span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp<%= issuepostModel[i].myClicks  %></h7>&nbsp&nbsp
-                    
-                </div>
-                </a>
- 
-       <% } %> 
-
-       </div>
-      
-       </br></br>
-        <% if (issuepostModels.length < 1) { %> 
-          <div class ="text-center">
-          <h3><font size ="8" color ="#FFFFFF"> "<%= searchTitle %>"<font> <font size ="6" color ="#FFFFFF">검색 결과가 없습니다.. sorry<font></h3>
-          <p><a href = "/"><button class="btn btn-danger" style ="center"> 하즐 홈페이지로 돌아가기</button></a></p>
-          <div class="fb-share-button"  data-href="http://www.hazzul.com" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">공유하기</a></div>
-          </div>
-       <% } %> 
-</div>
+			<% for(var i = issuepostModel.length-1; i > -1 ; i--) { %>
+				<a class="thumbnail" href="/hazzul/<%= issuepostModel[i].id %>" style="text-decoration: none;">
+					<h7><%= issuepostModel[i].posted.toLocaleDateString() %></h7>
+					<img class="img-responsive" src="<%= issuepostModel[i].img_url[0] || issuepostModel[i].img_url[1] || issuepostModel[i].video_url[1] %>" alt="이미지 로딩중...">
+					<div class="text-center">
+						<h5><%= issuepostModel[i].title %></h5>
+						<h7>
+							<span class="glyphicon glyphicon-comment"></span>
+							&nbsp&nbsp
+							<%=issuepostModel[i].userComments.length %>
+						</h7>&nbsp&nbsp
+						<h7>
+							<span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp
+							<%= issuepostModel[i].myClicks  %>
+						</h7>&nbsp&nbsp    
+					</div>
+				</a>
+			<% } %> 
+		</div><!-- End of Text Center -->
+		</br></br>
+		<% if (issuepostModels.length < 1) { %> 
+			<div class ="text-center">
+				<h3>
+					<font size ="8" color ="#FFFFFF">
+					"<%= searchTitle %>"
+					<font> <font size ="6" color ="#FFFFFF">
+					검색 결과가 없습니다.. sorry<font>
+				</h3>
+				<p>
+					<a href = "/"><button class="btn btn-danger" style ="center"> 하즐 홈페이지로 돌아가기</button>
+					</a>
+				</p>
+				<div class="fb-share-button"  data-href="http://www.hazzul.com" data-layout="button_count" data-mobile-iframe="true">
+					<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+						공유하기
+					</a>
+				</div>
+			</div>
+		<% } %> 
+		</div>
 
 <a href="#" class="back-to-top">Back to Top</a>
 
