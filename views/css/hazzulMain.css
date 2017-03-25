@@ -41,8 +41,8 @@ html,body{
 .thumbnail img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnail {
-   width: 195px;
-   height: 280px;
+   width: 203px;
+   height: 320px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -50,7 +50,7 @@ html,body{
 
 .thumbnail > img {
    width: 198px;
-   height: 172px;
+   height: 192px;
 
  }
 
@@ -58,8 +58,8 @@ html,body{
 .thumbnailHot img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnailHot {
-   width: 195px;
-   height: 275px;
+   width: 203px;
+   height: 320px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -67,7 +67,7 @@ html,body{
 
 .thumbnailHot > img {
    width: 198px;
-   height: 172px;
+   height: 192px;
 
  }
 
@@ -75,8 +75,8 @@ html,body{
 .thumbnailBest img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnailBest {
-   width: 195px;
-   height: 275px;
+   width: 203px;
+   height: 320px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -84,7 +84,7 @@ html,body{
 
 .thumbnailBest > img {
    width: 198px;
-   height: 172px;
+   height: 192px;
 
  }
 
@@ -152,6 +152,13 @@ h7 {
   border-radius: 5px;
 }
 
+  .bottom-align-text {
+    position: absolute;
+    bottom: 20px;
+	left: 25%;
+	right: 25%;
+  }
+  
 }
 
 
@@ -204,7 +211,7 @@ h7 {
 
 .thumbnailHot {
    width: 203px;
-   height: 275px;
+   height: 305px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -221,7 +228,7 @@ h7 {
 
 .thumbnailBest {
    width: 203px;
-   height: 275px;
+   height: 305px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -341,7 +348,7 @@ h7 {
 
 .thumbnailHot {
    width: 203px;
-   height: 275px;
+   height: 305px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -358,7 +365,7 @@ h7 {
 
 .thumbnailBest {
    width: 203px;
-   height: 275px;
+   height: 305px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -477,7 +484,7 @@ html,body{
 
 .thumbnailHot {
    width: 203px;
-   height: 275px;
+   height: 305px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -494,7 +501,7 @@ html,body{
 
 .thumbnailBest {
    width: 203px;
-   height: 275px;
+   height: 305px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
