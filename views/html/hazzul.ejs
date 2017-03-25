@@ -190,16 +190,19 @@ $('a.back-to-top').click(function() {
   </div>
 </div>
 
-</br>
+</br> 
 <section class="main">
 	<div class="container grid-custom"> 
 		<!-- LOCAL INFORMATION -->
         <div class="row">
 			<% if(issuepostModels.length == 20) { %>
-				<div class="col-sm-6">
-				<a class="thumbnailBest" href="/hazzul/<%= issuepostModels[19].id %>" style="text-decoration: none;">					
+				<div class="col-md-25 sm-12 nopadding" >
+				<div class="text-center">
+				<a class="thumbnailBest" href="/hazzul/<%= issuepostModels[19].id %>" style="text-decoration: none;">	
+					<h7><%= issuepostModels[19].posted.toLocaleDateString() %></h7>
+
 					<img class="img-responsive" src="<%= issuepostModels[19].img_url[0] || issuepostModels[19].img_url[1] || issuepostModels[19].video_url[1] %>" alt="이미지 로딩중...">
-					<div class="text-center">
+					
 						<h5><%= issuepostModels[19].title %></h5>
 						<h7>
 							<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
@@ -209,21 +212,21 @@ $('a.back-to-top').click(function() {
 							<span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp
 							<%= issuepostModels[19].myClicks %>
 						</h7>&nbsp&nbsp
-						<h7><%= issuepostModels[19].posted.toLocaleDateString() %></h7>
 						<b>
 							<span class="label label-success">실시간 베스트</span>
 						</b>
-					</div>
+					
                 </a>				
-				
+				</div>
 				</div>				
+				<div class="im-centered">
 				
-				<div class="row col-sum-3">	
-					<div class="col-xs-3">
+				<div class="col-md-35 sm-12">	
+					<div class="col-md-3 sm-2">
+						<div class="text-center">
 						<a class="thumbnailHot" href="/hazzul/<%= issuepostModels[18].id %>" style="text-decoration: none;">
 						<h7><%= issuepostModels[18].posted.toLocaleDateString() %></h7>
 						<img class="img-responsive" src="<%= issuepostModels[18].img_url[0] || issuepostModels[18].img_url[1] || issuepostModels[18].video_url[1] %>" alt="이미지 로딩중...">
-						<div class="text-center">
 							<h5><%= issuepostModels[18].title %></h5>
 							<h7>
 								<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
@@ -236,14 +239,14 @@ $('a.back-to-top').click(function() {
 							<b>
 								<span class="label label-danger">실시간 인기글</span>
 							</b>
-						</div>
-						</a>     
+						</a>  
+						</div>						
 					</div> 
-					<div class="col-xs-3"> 
+					<div class="col-md-3 sm-2"> 
+						<div class="text-center">
 						<a class="thumbnailHot" href="/hazzul/<%= issuepostModels[17].id %>" style="text-decoration: none;">
 						<h7><%= issuepostModels[17].posted.toLocaleDateString() %></h7>
 						<img class="img-responsive" src="<%= issuepostModels[17].img_url[0] || issuepostModels[17].img_url[1] || issuepostModels[17].video_url[1] %>" alt="이미지 로딩중...">
-						<div class="text-center">
 							<h5><%= issuepostModels[17].title %></h5>
 							<h7>
 								<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
@@ -256,14 +259,14 @@ $('a.back-to-top').click(function() {
 							<b>
 								<span class="label label-danger">실시간 인기글</span>
 							</b>
-						</div>
-						</a>     
+						</a>  
+					</div>						
 					</div> 
-					<div class="col-xs-3">
+					<div class="col-md-3 sm-4 centerAlign">
+					<div class="text-center">
 						<a class="thumbnailHot" href="/hazzul/<%= issuepostModels[16].id %>" style="text-decoration: none;">
 						<h7><%= issuepostModels[16].posted.toLocaleDateString() %></h7>
 						<img class="img-responsive" src="<%= issuepostModels[16].img_url[0] || issuepostModels[16].img_url[1] || issuepostModels[16].video_url[1] %>" alt="이미지 로딩중...">
-						<div class="text-center">
 							<h5><%= issuepostModels[16].title %></h5>
 							<h7>
 								<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
@@ -276,14 +279,14 @@ $('a.back-to-top').click(function() {
 							<b>
 								<span class="label label-danger">실시간 인기글</span>
 							</b>
-						</div>
-						</a>     
+						</a>  
+						</div>						
 					</div> 
-					<div class="col-xs-3">
+					<div class="col-md-3 sm-4 centerAlign">
+						<div class="text-center">
 						<a class="thumbnailHot" href="/hazzul/<%= issuepostModels[15].id %>" style="text-decoration: none;">
 						<h7><%= issuepostModels[15].posted.toLocaleDateString() %></h7>
 						<img class="img-responsive" src="<%= issuepostModels[15].img_url[0] || issuepostModels[15].img_url[1] || issuepostModels[15].video_url[1] %>" alt="이미지 로딩중...">
-						<div class="text-center">
 							<h5><%= issuepostModels[15].title %></h5>
 							<h7>
 								<span class="glyphicon glyphicon-comment"></span> &nbsp&nbsp
@@ -296,20 +299,20 @@ $('a.back-to-top').click(function() {
 							<b>
 								<span class="label label-danger">실시간 인기글</span>
 							</b>
-						</div>
-						</a>     
+						</a> 
+						</div>						
 					</div> 
-					
+				</div>	
 				</div>
 			<% }%>
 		</div>
 		
 		<div class="row">
 			<% for(var i = issuepostModel.length-1; i > -1 ; i--) { %>
+				<div class="text-center">
 				<a class="thumbnail" href="/hazzul/<%= issuepostModel[i].id %>" style="text-decoration: none;">
 					<h7><%= issuepostModel[i].posted.toLocaleDateString() %></h7>
 					<img class="img-responsive" src="<%= issuepostModel[i].img_url[0] || issuepostModel[i].img_url[1] || issuepostModel[i].video_url[1] %>" alt="이미지 로딩중...">
-					<div class="text-center">
 						<h5><%= issuepostModel[i].title %></h5>
 						<h7>
 							<span class="glyphicon glyphicon-comment"></span>
@@ -320,8 +323,8 @@ $('a.back-to-top').click(function() {
 							<span class="glyphicon glyphicon-eye-open"></span> &nbsp&nbsp&nbsp
 							<%= issuepostModel[i].myClicks  %>
 						</h7>&nbsp&nbsp    
-					</div>
 				</a>
+			</div>
 			<% } %> 
 		</div>
 		</br></br>
