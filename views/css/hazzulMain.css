@@ -15,16 +15,17 @@ html,body{
 
   .affix-row, .affix-container, .affix-content{
     height: 100%;
-    margin-left: 0;
-    margin-right: 0;    
+	width: 1170px
+    margin-left: auto;
+    margin-right: auto;    
   } 
 
  
   .affix-content{
 	background-color:#333333;
     overflow: auto;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
   }  
 
   .affix-content .container {
@@ -41,16 +42,16 @@ html,body{
 .thumbnail img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnail {
-   width: 195px;
-   height: 280px;
+   width: 180px;
+   height: 265px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
  }
 
 .thumbnail > img {
-   width: 198px;
-   height: 172px;
+   width: 183px;
+   height: 157px;
 
  }
 
@@ -58,8 +59,8 @@ html,body{
 .thumbnailHot img {height:auto; width:100%; margin:10 auto; }
 
 .thumbnailHot {
-   width: 195px;
-   height: 275px;
+   width: 200px;
+   height: 169.125px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
@@ -72,19 +73,19 @@ html,body{
  }
 
 .thumbnailBest { background-color: #484848; float:left; padding : 1%; width:200px; height:auto; overflow: hidden; }
-.thumbnailBest img {height:auto; width:100%; margin:10 auto; }
+.thumbnailBest img {height:100%; width:100%; margin:10 auto; }
 
 .thumbnailBest {
-   width: 195px;
-   height: 275px;
+   width: 555px;
+   height: 370px;
    overflow: auto;
    margin: 20px;
    border:1px solid #3f3f3f;
  }
 
 .thumbnailBest > img {
-   width: 198px;
-   height: 172px;
+   width: 555px;
+   height: 300px;
 
  }
 
