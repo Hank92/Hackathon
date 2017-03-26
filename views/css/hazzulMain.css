@@ -49,7 +49,7 @@ html,body{
  }
 
 .thumbnail > img {
-   width: 198px;
+   width: 203px;
    height: 192px;
 
  }
@@ -66,7 +66,7 @@ html,body{
  }
 
 .thumbnailHot > img {
-   width: 198px;
+   width: 203px;
    height: 192px;
 
  }
@@ -183,7 +183,7 @@ h7 {
 	left: 25%;
 	right: 25%;
   }
-  
+
 }
 
 
@@ -226,7 +226,7 @@ h7 {
  }
 
 .thumbnail > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -243,7 +243,7 @@ h7 {
  }
 
 .thumbnailHot > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -260,7 +260,7 @@ h7 {
  }
 
 .thumbnailBest > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -389,7 +389,7 @@ h7 {
  }
 
 .thumbnail > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -406,7 +406,7 @@ h7 {
  }
 
 .thumbnailHot > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -423,7 +423,7 @@ h7 {
  }
 
 .thumbnailBest > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -550,7 +550,7 @@ html,body{
  }
 
 .thumbnail > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -567,7 +567,7 @@ html,body{
  }
 
 .thumbnailHot > img {
-   width: 198px;
+   width: 203spx;
    height: 172px;
 
  }
@@ -584,7 +584,7 @@ html,body{
  }
 
 .thumbnailBest > img {
-   width: 198px;
+   width: 203px;
    height: 172px;
 
  }
@@ -792,10 +792,10 @@ a.back-to-top {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  border-bottom:2px solid #000000;
-  border-left:2px solid #000000;
-  border-right:2px solid #000000;
-  border-top:2px solid #000000;
+  border-bottom:1px solid #000000;
+  border-left:1px solid #000000;
+  border-right:1px solid #000000;
+  border-top:1px solid #000000;
 
 
 }
@@ -831,10 +831,10 @@ a.thumbnail:focus {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  border-bottom:2px solid #000000;
-  border-left:2px solid #000000;
-  border-right:2px solid #000000;
-  border-top:2px solid #000000;
+  border-bottom:1px solid #000000;
+  border-left:1px solid #000000;
+  border-right:1px solid #000000;
+  border-top:1px solid #000000;
 
 
 }
@@ -872,11 +872,10 @@ a.thumbnailHot:focus {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  border-bottom:2px solid #000000;
-  border-left:2px solid #000000;
-  border-right:2px solid #000000;
-  border-top:2px solid #000000;
-
+  border-bottom:1px solid #000000;
+  border-left:1px solid #000000;
+  border-right:1px solid #000000;
+  border-top:1px solid #000000;
 
 }
 
@@ -989,4 +988,120 @@ ul.pagination li a:hover {
         color: #fff;
         background-color: transparent;
     }
+}
+
+#bsPhotoGalleryModal .modal-dialog img {
+    text-align:center;
+    margin:0 auto;
+    width:90%;
+}
+
+ #bsPhotoGalleryModal iframe {
+    text-align:center;
+    margin:0 auto;
+    width:90%;
+}
+
+#bsPhotoGalleryModal .imgcomment {
+    text-align:center;
+    margin:0 auto;
+    font-size:16px;
+}
+
+#bsPhotoGalleryModal .modal-header {
+    margin:0 auto;
+    font-weight: bold;
+    font-size: 5px;
+    width:90%;
+}
+
+#bsPhotoGalleryModal .modal-footer {
+    margin:0 auto;
+    width:90%;
+
+}
+
+ #indivModal iframe {
+    text-align:center;
+    margin:0 auto;
+    width:90%;
+}
+
+#indivModal .imgcomment {
+    text-align:center;
+    margin:0 auto;
+    font-size:16px;
+}
+
+#indivModal .modal-header {
+    margin:0 auto;
+    font-weight: bold;
+    font-size: 15px;
+    width:90%;
+}
+
+#indivModal .modal-footer {
+    margin:0 auto;
+    width:90%;
+
+}
+
+ #indivModal .modal-dialog img {
+    text-align:center;
+    margin:0 auto;
+    width:90%;
+}
+
+
+.modal-content {
+  background-color: #333333;
+}
+
+ .modal-header {
+
+  border-bottom:  solid #333333;
+  }
+  .modal-title {
+    font-color:#F0F8FF;
+    text-align: left;
+    font-size: 30px;
+  }
+  .modal-footer {
+     border-bottom:  solid #333333;
+  }
+
+*:focus {
+    outline: none;
+}
+
+.nohighlight:focus {
+     outline:none;
+}
+.close {
+    color: #fff;
+    opacity: 2;
+}
+
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #000000;
+}
+
+ul.pagination li {display: inline;}
+
+
+ul.pagination li a {
+    color: black;
+    text-decoration: none;
+
+}
+
+ul.pagination li a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background: #2b303b;
+    border: 1px solid #2b303b;
 }
