@@ -1,4 +1,4 @@
-<!-- views/hazzulBlogspot.ejs -->
+<!-- views/hazzulDogdrip.ejs -->
 <!doctype html>
 <html>
 <head>
@@ -127,15 +127,9 @@ $('a.back-to-top').click(function() {
 
 			<nav class="navbar-default nav-bottom" style="background: #262626;">
 				<ul class="nav navbar-nav">
-<<<<<<< HEAD
-					<li><a href="/"><font color="#fffff">ÇÏÁñ º£½ºÆ®</a></font></li>
-					<li><a href="#"><font color="#fffff">ÁÖ°£ º£½ºÆ®</a></font></li>
-					<li><a href="/fmkorea"><font color="#fffff">#FMÄÚ¸®¾Æ</font></a></li>
-=======
 					<li><a href="/"><font color="#fffff">í•˜ì¦ ë² ìŠ¤íŠ¸</a></font></li>
 					<li><a href="#"><font color="#fffff">ì£¼ê°„ ë² ìŠ¤íŠ¸</a></font></li>
 					<li><a href="/fmkorea"><font color="#fffff">#FMì½”ë¦¬ì•„</font></a></li>
->>>>>>> origin/master
 					<li><a href="/dogdrip"><font color="#fffff">#DogDrip</font></a></li>
 					<li><a href="/torrent"><font color="#fffff">#í† ë ŒíŠ¸</font></a></li>
 					<li><a href="/ygosu"><font color="#fffff">#ì™€ì´ê³ ìˆ˜</font></a></li>
@@ -323,7 +317,7 @@ $('a.back-to-top').click(function() {
 <div class ="text-center pagelayout">
 <ul class="pagination">
   <% if (currentPage > 1) { %>
-      <li><a href="/blogspot/?page=1">&laquo;</a></li>
+      <li><a href="/dogdrip/?page=1">&laquo;</a></li>
   <% } %>
   <% var i = 1;
   if (currentPage > 3) {
@@ -336,14 +330,14 @@ $('a.back-to-top').click(function() {
     <% if (currentPage == i) { %>
         <li class="active" style="background: purple;" ><span style="background: #2b303b; border: 1px solid #2b303b;"><%= i %> <span class="sr-only">(current)</span></span></li>
     <% } else { %>
-        <li><a href="/blogspot/?page=<%= i %>"><%= i %></a></li>
+        <li><a href="/dogdrip/?page=<%= i %>"><%= i %></a></li>
     <% } %>
     <% if (i == (currentPage + 2)) { %>
         <li class="disabled"><a href="#">...</a></li>
     <% break; } %>
   <% } %>
   <% if (currentPage != pageCount) { %>
-      <li><a href="/blogspot/?page=<%= pageCount %>">&raquo;</a></li>
+      <li><a href="/dogdrip/?page=<%= pageCount %>">&raquo;</a></li>
   <% } %>
 </ul>
 </div>
