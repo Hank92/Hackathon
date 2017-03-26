@@ -101,13 +101,13 @@ $('a.back-to-top').click(function() {
 				</form>
 
 				<ul class="nav navbar-nav" style="float: left">
-					<li>	
+					<li>
 						<a href="/login" class="btn btn-primary btn-sm" style="margin-top: 13px; padding: 5px; padding-left: 10px; padding-right: 10px;" role="button">
 							<font-color="#000000">Login</font>
 						</a>
 					</li>
 				</ul>
-				
+
 				<div class="navbar-form navbar-left" >
 					<a href ="">
 					<button style=
@@ -120,9 +120,9 @@ $('a.back-to-top').click(function() {
 						<i class="fa fa-facebook-square" aria-hidden="true"></i>
 					</button></a>
 				</div>
-				
+
 			</ul>
-			
+
 
 			<nav class="navbar-default nav-bottom" style="background: #262626;">
 				<ul class="nav navbar-nav">
@@ -203,7 +203,7 @@ $('a.back-to-top').click(function() {
 
 	<div class="row">
 		<!-- LOCAL INFORMATION -->
-		
+
 			<div class="well">
 				<h3><span class="fa fa-user"></span> Local</h3>
 					<p>
@@ -213,12 +213,12 @@ $('a.back-to-top').click(function() {
 						<strong>Favorites</strong>: <br>
 
 						<% for(var i = user.local.favorite.length-1; i > -1 ; i--) { %>
-								<a href="/"><%= user.local.favorite[i] %></a>
+								<a href='/?search=<%= user.local.favorite[i] %>'><%= user.local.favorite[i] %></a><br>
 						<% } %>
 
 					</p>
 			</div>
-		
+
 	</div>
 	<div class="text-center">
 		<a href="/logout" class="btn btn-primary btn-ms">Logout</a>
