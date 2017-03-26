@@ -255,10 +255,10 @@ if(req.query.search){
 
 		issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
 		 	var searchTitle = req.query.search;
-		 	pageSize = results.limit;
+		 				pageSize = results.limit;
             pageCount = (results.total)/(results.limit);
-    		pageCount = Math.ceil(pageCount);
-    	    totalPosts = results.total;
+    				pageCount = Math.ceil(pageCount);
+    	    	totalPosts = results.total;
     	//console.log(results.docs)
 
     	res.render('hazzulSearch.ejs', {
