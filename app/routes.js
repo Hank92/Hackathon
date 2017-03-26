@@ -529,7 +529,7 @@ app.get('/dogdrip', function (req, res){
 										//console.log(results.docs)
 										var instiz = "인스티즈";
 
-										res.render('hazzulTorrent.ejs', {
+										res.render('hazzulInstiz.ejs', {
 											issuepostModel: sortId,
 											issuepostModels: args,
 											pageSize: pageSize,
@@ -693,7 +693,7 @@ app.get('/dogdrip', function (req, res){
 								    	//console.log(results.docs)
 											var reple = "댓글학원";
 
-								    	res.render('hazzulTorrent.ejs', {
+								    	res.render('hazzulReple.ejs', {
 								    		issuepostModel: sortId,
 								    		issuepostModels: args,
 								    		pageSize: pageSize,
