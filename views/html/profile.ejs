@@ -211,6 +211,11 @@ $('a.back-to-top').click(function() {
 					</p>
 					<p>
 						<strong>Favorites</strong>: <br>
+
+						<% for(var i = user.local.favorite.length-1; i > -1 ; i--) { %>
+								<a href="/"><%= user.local.favorite[i] %></a>
+						<% } %>
+
 					</p>
 			</div>
 		
