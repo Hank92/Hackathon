@@ -12,7 +12,6 @@ var hazzulBestModel = require('../app/models/hazzulBestPost');
 module.exports = function (app, passport){
 
 	app.get('/login', function(req, res) {
-
 		        // render the page and pass in any flash data if it exists
 		        res.render('login.ejs', { message: req.flash('loginMessage') });
 		    });
@@ -23,7 +22,6 @@ module.exports = function (app, passport){
 		    }));
 
 		app.get('/signup', function(req, res) {
-
 		        // render the page and pass in any flash data if it exists
 		        res.render('signup.ejs', { message: req.flash('signupMessage') });
 		    });
@@ -71,6 +69,29 @@ app.get('/hazzul/:id', function(req, res){
 	})
 
 });
+
+app.get('/profile', isLoggedIn, function(req, res) {
+			res.render('profile.ejs', {
+					user : req.user // get the user out of session and pass to template
+			});
+	});
+app.post('/:id/:page/hazzulFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		console.log(item[0].title)
+		console.log(user.local.email)
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				console.log("saved")
+				res.redirect('/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
 
 app.post('/:id/:page/hazzul', function (req, res){
 	var pageNum = req.params.page;
@@ -774,7 +795,7 @@ app.get('/dogdrip', function (req, res){
 														//console.log(results.docs)
 														var mhc = "모해유머";
 
-														res.render('hazzulTorrent.ejs', {
+														res.render('hazzulMhc.ejs', {
 															issuepostModel: sortId,
 															issuepostModels: args,
 															pageSize: pageSize,
