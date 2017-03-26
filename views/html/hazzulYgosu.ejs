@@ -317,7 +317,7 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
             </a>
         </div>
 
-		<div class="collapse navbar-collapse" id="navbar">
+      <div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<form class="navbar-form navbar-left" role="search" action="/" method="get">
 					<input type="text" name="search" id="search" type="text" class="search-query form-control" placeholder="검색하기">
@@ -335,7 +335,12 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 
 				<li>
 					<a href="/login" class="btn btn-primary btn-sm" style="padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px; margin-top:10px" role="button">
-						<font-color="#000000">로그인</font>
+						<font-color="#000000">Login</font>
+					</a>
+				</li>
+				<li>
+					<a href="/profile" class="btn btn-primary btn-sm" style="padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px; margin-top:10px" role="button">
+						<font-color="#000000">Profile</font>
 					</a>
 				</li>
 				<li>
@@ -352,7 +357,9 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 					</button>
 					</a>
 				</li>
+
 			</ul>
+
 
 			<nav class="navbar-default nav-bottom" style="background: #262626;">
 				<ul class="nav navbar-nav">
@@ -362,23 +369,20 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 					<li><a href="/dogdrip"><font color="#fffff">#DogDrip</font></a></li>
 					<li><a href="/torrent"><font color="#fffff">#토렌트</font></a></li>
 					<li><a href="/ygosu"><font color="#fffff">#와이고수</font></a></li>
-          <li><a href="/blogspot"><font color="#fffff">#Blogspot</font></a></li>
-
+					<li><a href="/blogspot"><font color="#fffff">#Blogspot</font></a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							<font color="#fffff">기타
 							<span class="caret"></span></font>
 						</a>
 						<ul class="dropdown-menu" style=" background: #262626;">
-							<li><h6 class="dropdown-header">다운로드</h6>
-							<li><a href="/files/하즐.apk"><font color="#fffff">안드로이드</font></a></li>
-							<li><a href="#"><font color="#fffff">애플</font></a></li>
-							<li role="separator" class="divider"></li>
 							<li><h6 class="dropdown-header">기타 웹사이트</h6>
 							<li><a href="/pann"><font color="#fffff">#네이트 판</font></a></li>
-							<li><a href="mhc"><font color="#fffff">#모해유머</font></a></li>
+							<li><a href="/mhc"><font color="#fffff">#모해유머</font></a></li>
 							<li><a href="/reple"><font color="#fffff">#댓글학원</font></a></li>
 							<li><a href="/instiz"><font color="#fffff">#인스터즈</font></a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" data-toggle="modal" data-target="#aboutModal"><font color="#fffff">하즐이란?</font></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -565,4 +569,4 @@ alt="website statistics"></a></div></noscript>
 
 </body>
 </html>
-s
+

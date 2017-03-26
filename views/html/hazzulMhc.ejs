@@ -305,7 +305,6 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
 <nav class="navbar-inverse navbar-default" style=" background: #262626;">
   <div class="container">
     <ul class="nav navbar-top" >
@@ -337,26 +336,30 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 					</button>
 				</form>
 
-				<ul class="nav navbar-nav" style="float: left">
-					<li>
-						<a href="/login" class="btn btn-primary btn-sm" style="margin-top: 13px; padding: 5px; padding-left: 10px; padding-right: 10px;" role="button">
-							<font-color="#000000">Login</font>
-						</a>
-					</li>
-				</ul>
-
-				<div class="navbar-form navbar-left" >
-					<a href ="">
+				<li>
+					<a href="/login" class="btn btn-primary btn-sm" style="padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px; margin-top:10px" role="button">
+						<font-color="#000000">Login</font>
+					</a>
+				</li>
+				<li>
+					<a href="/profile" class="btn btn-primary btn-sm" style="padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px; margin-top:10px" role="button">
+						<font-color="#000000">Profile</font>
+					</a>
+				</li>
+				<li>
+					<a href ="" style="padding:15px;">
 					<button style=
 						" border: none; background: #222222;
-						height: 40px;
-						width: 40px;
+						height: 20px;
+						width: 20px;
 						color: #4f5b66;
 						opacity: none;
+						padding:0px;
 						font-size: 20pt;" class="icon">
 						<i class="fa fa-facebook-square" aria-hidden="true"></i>
-					</button></a>
-				</div>
+					</button>
+					</a>
+				</li>
 
 			</ul>
 
@@ -376,13 +379,9 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 							<span class="caret"></span></font>
 						</a>
 						<ul class="dropdown-menu" style=" background: #262626;">
-							<li><h6 class="dropdown-header">다운로드</h6>
-							<li><a href="/files/하즐.apk"><font color="#fffff">안드로이드</font></a></li>
-							<li><a href="#"><font color="#fffff">애플</font></a></li>
-							<li role="separator" class="divider"></li>
 							<li><h6 class="dropdown-header">기타 웹사이트</h6>
 							<li><a href="/pann"><font color="#fffff">#네이트 판</font></a></li>
-							<li><a href="mhc"><font color="#fffff">#모해유머</font></a></li>
+							<li><a href="/mhc"><font color="#fffff">#모해유머</font></a></li>
 							<li><a href="/reple"><font color="#fffff">#댓글학원</font></a></li>
 							<li><a href="/instiz"><font color="#fffff">#인스터즈</font></a></li>
 							<li role="separator" class="divider"></li>
