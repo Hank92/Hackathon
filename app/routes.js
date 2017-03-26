@@ -176,6 +176,413 @@ app.get('/dogdrip', function (req, res){
 		}
 		});
 
+		app.get('/ygosu', function (req, res){
+
+				if(req.query.search){
+
+					var currentPage = 1;
+					if (typeof req.query.page !== 'undefined') {
+				        currentPage = +req.query.page;
+				    	}
+
+						issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+						 	var searchTitle = req.query.search;
+						 		pageSize = results.limit;
+				        pageCount = (results.total)/(results.limit);
+				    		pageCount = Math.ceil(pageCount);
+				    	  totalPosts = results.total;
+				    	//console.log(results.docs)
+
+				    	res.render('hazzulSearch.ejs', {
+				    		issuepostModels: results.docs,
+				    		searchTitle: searchTitle,
+				    		pageSize: pageSize,
+				    		pageCount: pageCount,
+				    		totalPosts: totalPosts,
+				    		currentPage: currentPage
+				    	})//res.render
+
+				})
+					}
+					else {
+					var currentPage = 1;
+					if (typeof req.query.page !== 'undefined') {
+				        currentPage = +req.query.page;
+				    	}
+
+						issueModel.paginate({url: "와이고수"}, {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+				         if(err){
+				         console.log("error!!");
+				         console.log(err);
+				     } else {
+				     	var args = Array.prototype.slice.call(results.docs);
+
+				    	args = args.sort(function(a,b) {
+				        if ( a.myClicks < b.myClicks )
+				            return -1;
+				        if ( a.myClicks > b.myClicks)
+				            return 1;
+				        return 0;
+				    } );
+				    	var sortId
+				    	sortId = args.slice(0);
+				    	sortId.splice(15,20);
+				    	sortId = sortId.sort(function(a,b) {
+				        if ( a._id < b._id )
+				            return -1;
+				        if ( a._id > b._id)
+				            return 1;
+				        return 0;
+				    } );
+
+				    	    pageSize = results.limit;
+				          pageCount = (results.total)/(results.limit);
+				    		  pageCount = Math.ceil(pageCount);
+				    	    totalPosts = results.total;
+				    	//console.log(results.docs)
+							var ygosu = "와이고수";
+
+				    	res.render('hazzulYgosu.ejs', {
+				    		issuepostModel: sortId,
+				    		issuepostModels: args,
+				    		pageSize: pageSize,
+				    		pageCount: pageCount,
+				    		totalPosts: totalPosts,
+								searchTitle: ygosu,
+								source: ygosu,
+				    		currentPage: currentPage
+				    	})//res.render
+				     }//else
+				     });//paginate
+				}
+				});
+				app.get('/instiz', function (req, res){
+
+							if(req.query.search){
+
+								var currentPage = 1;
+								if (typeof req.query.page !== 'undefined') {
+											currentPage = +req.query.page;
+										}
+
+									issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+										var searchTitle = req.query.search;
+											pageSize = results.limit;
+											pageCount = (results.total)/(results.limit);
+											pageCount = Math.ceil(pageCount);
+											totalPosts = results.total;
+										//console.log(results.docs)
+
+										res.render('hazzulSearch.ejs', {
+											issuepostModels: results.docs,
+											searchTitle: searchTitle,
+											pageSize: pageSize,
+											pageCount: pageCount,
+											totalPosts: totalPosts,
+											currentPage: currentPage
+										})//res.render
+
+							})
+								}
+								else {
+								var currentPage = 1;
+								if (typeof req.query.page !== 'undefined') {
+											currentPage = +req.query.page;
+										}
+
+									issueModel.paginate({url: "인스티즈"}, {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+											 if(err){
+											 console.log("error!!");
+											 console.log(err);
+									 } else {
+										var args = Array.prototype.slice.call(results.docs);
+
+										args = args.sort(function(a,b) {
+											if ( a.myClicks < b.myClicks )
+													return -1;
+											if ( a.myClicks > b.myClicks)
+													return 1;
+											return 0;
+									} );
+										var sortId
+										sortId = args.slice(0);
+										sortId.splice(15,20);
+										sortId = sortId.sort(function(a,b) {
+											if ( a._id < b._id )
+													return -1;
+											if ( a._id > b._id)
+													return 1;
+											return 0;
+									} );
+
+												pageSize = results.limit;
+												pageCount = (results.total)/(results.limit);
+												pageCount = Math.ceil(pageCount);
+												totalPosts = results.total;
+										//console.log(results.docs)
+										var instiz = "인스티즈";
+
+										res.render('hazzulTorrent.ejs', {
+											issuepostModel: sortId,
+											issuepostModels: args,
+											pageSize: pageSize,
+											pageCount: pageCount,
+											totalPosts: totalPosts,
+											searchTitle: instiz,
+											source: instiz,
+											currentPage: currentPage
+										})//res.render
+									 }//else
+									 });//paginate
+							}
+							});
+
+
+
+				app.get('/blogspot', function (req, res){
+
+						if(req.query.search){
+
+							var currentPage = 1;
+							if (typeof req.query.page !== 'undefined') {
+						        currentPage = +req.query.page;
+						    	}
+
+								issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+								 	var searchTitle = req.query.search;
+								 		pageSize = results.limit;
+						        pageCount = (results.total)/(results.limit);
+						    		pageCount = Math.ceil(pageCount);
+						    	  totalPosts = results.total;
+						    	//console.log(results.docs)
+
+						    	res.render('hazzulSearch.ejs', {
+						    		issuepostModels: results.docs,
+						    		searchTitle: searchTitle,
+						    		pageSize: pageSize,
+						    		pageCount: pageCount,
+						    		totalPosts: totalPosts,
+						    		currentPage: currentPage
+						    	})//res.render
+
+						})
+							}
+							else {
+							var currentPage = 1;
+							if (typeof req.query.page !== 'undefined') {
+						        currentPage = +req.query.page;
+						    	}
+
+								issueModel.paginate({url: "blogspot"}, {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+						         if(err){
+						         console.log("error!!");
+						         console.log(err);
+						     } else {
+						     	var args = Array.prototype.slice.call(results.docs);
+
+						    	args = args.sort(function(a,b) {
+						        if ( a.myClicks < b.myClicks )
+						            return -1;
+						        if ( a.myClicks > b.myClicks)
+						            return 1;
+						        return 0;
+						    } );
+						    	var sortId
+						    	sortId = args.slice(0);
+						    	sortId.splice(15,20);
+						    	sortId = sortId.sort(function(a,b) {
+						        if ( a._id < b._id )
+						            return -1;
+						        if ( a._id > b._id)
+						            return 1;
+						        return 0;
+						    } );
+
+						    	    pageSize = results.limit;
+						          pageCount = (results.total)/(results.limit);
+						    		  pageCount = Math.ceil(pageCount);
+						    	    totalPosts = results.total;
+						    	//console.log(results.docs)
+									var blogspot = "Blogspot";
+
+						    	res.render('hazzulBlogspot.ejs', {
+						    		issuepostModel: sortId,
+						    		issuepostModels: args,
+						    		pageSize: pageSize,
+						    		pageCount: pageCount,
+						    		totalPosts: totalPosts,
+										searchTitle: blogspot,
+										source: blogspot,
+						    		currentPage: currentPage
+						    	})//res.render
+						     }//else
+						     });//paginate
+						}
+						});
+
+					app.get('/reple', function (req, res){
+
+								if(req.query.search){
+
+									var currentPage = 1;
+									if (typeof req.query.page !== 'undefined') {
+								        currentPage = +req.query.page;
+								    	}
+
+										issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+										 	var searchTitle = req.query.search;
+										 		pageSize = results.limit;
+								        pageCount = (results.total)/(results.limit);
+								    		pageCount = Math.ceil(pageCount);
+								    	  totalPosts = results.total;
+								    	//console.log(results.docs)
+
+								    	res.render('hazzulSearch.ejs', {
+								    		issuepostModels: results.docs,
+								    		searchTitle: searchTitle,
+								    		pageSize: pageSize,
+								    		pageCount: pageCount,
+								    		totalPosts: totalPosts,
+								    		currentPage: currentPage
+								    	})//res.render
+
+								})
+									}
+									else {
+									var currentPage = 1;
+									if (typeof req.query.page !== 'undefined') {
+								        currentPage = +req.query.page;
+								    	}
+
+										issueModel.paginate({url: "댓글학원"}, {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+								         if(err){
+								         console.log("error!!");
+								         console.log(err);
+								     } else {
+								     	var args = Array.prototype.slice.call(results.docs);
+
+								    	args = args.sort(function(a,b) {
+								        if ( a.myClicks < b.myClicks )
+								            return -1;
+								        if ( a.myClicks > b.myClicks)
+								            return 1;
+								        return 0;
+								    } );
+								    	var sortId
+								    	sortId = args.slice(0);
+								    	sortId.splice(15,20);
+								    	sortId = sortId.sort(function(a,b) {
+								        if ( a._id < b._id )
+								            return -1;
+								        if ( a._id > b._id)
+								            return 1;
+								        return 0;
+								    } );
+
+								    	    pageSize = results.limit;
+								          pageCount = (results.total)/(results.limit);
+								    		  pageCount = Math.ceil(pageCount);
+								    	    totalPosts = results.total;
+								    	//console.log(results.docs)
+											var reple = "댓글학원";
+
+								    	res.render('hazzulTorrent.ejs', {
+								    		issuepostModel: sortId,
+								    		issuepostModels: args,
+								    		pageSize: pageSize,
+								    		pageCount: pageCount,
+								    		totalPosts: totalPosts,
+												searchTitle:reple,
+												source: reple,
+								    		currentPage: currentPage
+								    	})//res.render
+								     }//else
+								     });//paginate
+								}
+								});
+
+								app.get('/mhc', function (req, res){
+
+											if(req.query.search){
+
+												var currentPage = 1;
+												if (typeof req.query.page !== 'undefined') {
+															currentPage = +req.query.page;
+														}
+
+													issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+														var searchTitle = req.query.search;
+															pageSize = results.limit;
+															pageCount = (results.total)/(results.limit);
+															pageCount = Math.ceil(pageCount);
+															totalPosts = results.total;
+														//console.log(results.docs)
+
+														res.render('hazzulSearch.ejs', {
+															issuepostModels: results.docs,
+															searchTitle: searchTitle,
+															pageSize: pageSize,
+															pageCount: pageCount,
+															totalPosts: totalPosts,
+															currentPage: currentPage
+														})//res.render
+
+											})
+												}
+												else {
+												var currentPage = 1;
+												if (typeof req.query.page !== 'undefined') {
+															currentPage = +req.query.page;
+														}
+
+													issueModel.paginate({url: "모해유머"}, {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+															 if(err){
+															 console.log("error!!");
+															 console.log(err);
+													 } else {
+														var args = Array.prototype.slice.call(results.docs);
+
+														args = args.sort(function(a,b) {
+															if ( a.myClicks < b.myClicks )
+																	return -1;
+															if ( a.myClicks > b.myClicks)
+																	return 1;
+															return 0;
+													} );
+														var sortId
+														sortId = args.slice(0);
+														sortId.splice(15,20);
+														sortId = sortId.sort(function(a,b) {
+															if ( a._id < b._id )
+																	return -1;
+															if ( a._id > b._id)
+																	return 1;
+															return 0;
+													} );
+
+																pageSize = results.limit;
+																pageCount = (results.total)/(results.limit);
+																pageCount = Math.ceil(pageCount);
+																totalPosts = results.total;
+														//console.log(results.docs)
+														var mhc = "모해유머";
+
+														res.render('hazzulTorrent.ejs', {
+															issuepostModel: sortId,
+															issuepostModels: args,
+															pageSize: pageSize,
+															pageCount: pageCount,
+															totalPosts: totalPosts,
+															searchTitle:mhc,
+															source: mhc,
+															currentPage: currentPage
+														})//res.render
+													 }//else
+													 });//paginate
+											}
+											});
+
+
 		app.get('/torrent', function (req, res){
 
 				if(req.query.search){
@@ -257,6 +664,88 @@ app.get('/dogdrip', function (req, res){
 				}
 				});
 
+				app.get('/pann', function (req, res){
+
+					if(req.query.search){
+
+						var currentPage = 1;
+						if (typeof req.query.page !== 'undefined') {
+									currentPage = +req.query.page;
+								}
+
+							issueModel.paginate({ title: {$regex : req.query.search} } , {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+								var searchTitle = req.query.search;
+								pageSize = results.limit;
+											pageCount = (results.total)/(results.limit);
+									pageCount = Math.ceil(pageCount);
+										totalPosts = results.total;
+								//console.log(results.docs)
+
+								res.render('hazzulSearch.ejs', {
+									issuepostModels: results.docs,
+									searchTitle: searchTitle,
+									pageSize: pageSize,
+									pageCount: pageCount,
+									totalPosts: totalPosts,
+									currentPage: currentPage
+								})//res.render
+
+					})
+						}
+						else {
+						var currentPage = 1;
+						if (typeof req.query.page !== 'undefined') {
+									currentPage = +req.query.page;
+								}
+
+							issueModel.paginate({url: "네이트판"}, {sort: {"_id":-1}, page: currentPage, limit: 20 }, function(err, results) {
+									 if(err){
+									 console.log("error!!");
+									 console.log(err);
+							 } else {
+								var args = Array.prototype.slice.call(results.docs);
+
+								args = args.sort(function(a,b) {
+									if ( a.myClicks < b.myClicks )
+											return -1;
+									if ( a.myClicks > b.myClicks)
+											return 1;
+									return 0;
+							} );
+								var sortId
+								sortId = args.slice(0);
+								sortId.splice(15,20);
+								sortId = sortId.sort(function(a,b) {
+									if ( a._id < b._id )
+											return -1;
+									if ( a._id > b._id)
+											return 1;
+									return 0;
+							} );
+
+										pageSize = results.limit;
+										pageCount = (results.total)/(results.limit);
+										pageCount = Math.ceil(pageCount);
+										totalPosts = results.total;
+								//console.log(results.docs)
+								var natePann = "네이트판";
+
+								res.render('hazzulPann.ejs', {
+									issuepostModel: sortId,
+									issuepostModels: args,
+									pageSize: pageSize,
+									pageCount: pageCount,
+									totalPosts: totalPosts,
+									searchTitle: natePann,
+									source: natePann,
+									currentPage: currentPage
+								})//res.render
+							 }//else
+							 });//paginate
+					}
+					});
+
+
 
 app.get('/fmkorea', function (req, res){
 
@@ -330,6 +819,7 @@ app.get('/fmkorea', function (req, res){
 					pageSize: pageSize,
 					pageCount: pageCount,
 					totalPosts: totalPosts,
+					searchTitle: fmkorea,
 					source: fmkorea,
 					currentPage: currentPage
 				})//res.render
@@ -575,7 +1065,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=1', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -729,7 +1219,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=1', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -885,7 +1375,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=1', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1031,7 +1521,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=1', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1201,7 +1691,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=2', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1353,7 +1843,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=2', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1514,7 +2004,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=3', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1667,7 +2157,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=3', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1829,7 +2319,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=4', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -1981,7 +2471,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=4', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -2145,7 +2635,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=5', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -2298,7 +2788,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=5', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -2462,7 +2952,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=2', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -2614,7 +3104,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=2', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -2776,7 +3266,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=6', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -2927,7 +3417,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free2&page=6', function(err, re
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -3088,7 +3578,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=3', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -3240,7 +3730,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=3', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -3402,7 +3892,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=4', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -3554,7 +4044,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=4', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -3717,7 +4207,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=5', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -3869,7 +4359,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=5', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4031,7 +4521,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=6', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4183,7 +4673,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=free&page=6', function(err, res
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4350,7 +4840,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=temp', function(err, res, body)
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4522,7 +5012,7 @@ request('http://bhu.co.kr/bbs/board.php?bo_table=temp', function(err, res, body)
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4660,7 +5150,7 @@ request('http://www.issuein.com', function(err, res, body){
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4797,7 +5287,7 @@ request('http://issuein.com/index.php?mid=index&page=2', function(err, res, body
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -4933,7 +5423,7 @@ request('http://issuein.com/index.php?mid=index&page=3', function(err, res, body
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
@@ -5067,7 +5557,7 @@ request('http://issuein.com/index.php?mid=index&page=4', function(err, res, body
 						love = "인벤"
 					}
 					if(repeatedImg.indexOf("instiz") >= 0){
-						love = "인스터즈"
+						love = "인스티즈"
 					}
 					if(repeatedImg.indexOf("cucudas") >= 0){
 						love = "쿠쿠다스"
