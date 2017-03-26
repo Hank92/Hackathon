@@ -111,7 +111,7 @@ if(type) {
       }
 
       html += '<br>'
-      html += '<div style="text-align:center"><button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">포스트 닫기</button></div>'
+      html += '<div style="text-align:center"><form name ="myForm" role="form" method="post" action="/' + myVar[a]._id + '/<%= currentPage %>/searchFavorite"><button type="submit" class="btn btn-primary btn-lg" >즐겨찾기</button></form></div>'
       html += '<br>'
 
       htmlcomment += '<form name ="myForm" role="form" method="post" action="/' + idFound._id + '/<%= pageCount %>"><textarea style="color: #2b303b" class="form-control" type = "text" name="userPost" placeholder="댓글 달아주세요" rows="5" id="comment" required></textarea><br><button type="submit" class="btn btn-danger btn-lg " style ="float:left"><i class="fa fa-edit"></i> 댓글 달기</button></form>';
@@ -189,7 +189,7 @@ var modal = '';
       }
 
       html += '<br>'
-      html += '<div style="text-align:center"><button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">포스트 닫기</button></div>'
+      html += '<div style="text-align:center"><form name ="myForm" role="form" method="post" action="/' + myVar[a]._id + '/<%= currentPage %>/searchFavorite"><button type="submit" class="btn btn-primary btn-lg" >즐겨찾기</button></form></div>'
       html += '<br>'
 
 

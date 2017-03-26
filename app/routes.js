@@ -75,19 +75,167 @@ app.get('/profile', isLoggedIn, function(req, res) {
 					user : req.user // get the user out of session and pass to template
 			});
 	});
+
 app.post('/:id/:page/hazzulFavorite', isLoggedIn, function (req, res){
 	var pageNum = req.params.page;
 	var user = req.user;
 
 	issueModel.find({_id: req.params.id}, function(err, item){
-		console.log(item[0].title)
-		console.log(user.local.email)
 		user.local.favorite.push(item[0].title)
 		user.save(function(err, data){
 			if(err) res.send(err)
 			else
-				console.log("saved")
 				res.redirect('/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/blogspotFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/blogspot/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/dogdripFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/dogdrip/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/fmkoreaFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/fmkorea/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/instizFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/instiz/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/mhcFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/mhc/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/pannFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/pann/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/repleFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/reple/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/searchFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/torrentFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/torrent/?page=' + pageNum)
+		})
+	})
+
+}) //app.post
+
+app.post('/:id/:page/ygosuFavorite', isLoggedIn, function (req, res){
+	var pageNum = req.params.page;
+	var user = req.user;
+
+	issueModel.find({_id: req.params.id}, function(err, item){
+		user.local.favorite.push(item[0].title)
+		user.save(function(err, data){
+			if(err) res.send(err)
+			else
+				res.redirect('/ygosu/?page=' + pageNum)
 		})
 	})
 
