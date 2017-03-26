@@ -113,7 +113,7 @@ $('a.back-to-top').click(function() {
         }
 
         html += '<br>'
-        html += '<div style="text-align:center"><button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">포스트 닫기</button></div>'
+        html += '<div style="text-align:center"><form name ="myForm" role="form" method="post" action="/' + myVar[a]._id + '/<%= currentPage %>/dogdripFavorite"><button type="submit" class="btn btn-primary btn-lg" >즐겨찾기</button></form></div>'
         html += '<br>'
 
         htmlcomment += '<form name ="myForm" role="form" method="post" action="/' + idFound._id + '/<%= pageCount %>/dogdrip"><textarea style="color: #2b303b" class="form-control" type = "text" name="userPost" placeholder="댓글 달아주세요" rows="5" id="comment" required></textarea><br><button type="submit" class="btn btn-danger btn-lg " style ="float:left"><i class="fa fa-edit"></i> 댓글 달기</button></form>';
@@ -189,7 +189,7 @@ var myVar = <%- JSON.stringify(issuepostModel) %>;
         }
 
         html += '<br>'
-        html += '<div style="text-align:center"><button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">포스트 닫기</button></div>'
+        html += '<div style="text-align:center"><form name ="myForm" role="form" method="post" action="/' + myVar[a]._id + '/<%= currentPage %>/dogdripFavorite"><button type="submit" class="btn btn-primary btn-lg" >즐겨찾기</button></form></div>'
         html += '<br>'
 
 
@@ -261,7 +261,7 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
         }
 
         html += '<br>'
-        html += '<div style="text-align:center"><button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">포스트 닫기</button></div>'
+        html += '<div style="text-align:center"><form name ="myForm" role="form" method="post" action="/' + myVar[a]._id + '/<%= currentPage %>/dogdripFavorite"><button type="submit" class="btn btn-primary btn-lg" >즐겨찾기</button></form></div>'
         html += '<br>'
 
 
@@ -333,8 +333,8 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 					</button>
 				</form>
 
-				
-				<li>	
+
+				<li>
 					<a href="/login" class="btn btn-primary btn-sm" style="padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px; margin-top:10px" role="button">
 						<font-color="#000000">로그인</font>
 					</a>
@@ -353,8 +353,8 @@ var myVar = <%- JSON.stringify(issuepostModels) %>;
 					</button>
 					</a>
 				</li>
-				
-				
+
+
 			</ul>
 
 			<nav class="navbar-default nav-bottom" style="background: #262626;">
