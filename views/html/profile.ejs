@@ -28,6 +28,10 @@
 						<strong>id</strong>: <%= user._id %><br>
 						<strong>email</strong>: <%= user.local.email %><br>
 						<strong>password</strong>: <%= user.local.password %>
+
+						<% for(var i = user.local.favorite.length-1; i > -1 ; i--) { %>
+							 <%= user.local.favorite[i] %>
+						<% } %>
 					</p>
 
 			</div>
