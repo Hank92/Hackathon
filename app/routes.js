@@ -11,12 +11,171 @@ var hazzulBestModel = require('../app/models/hazzulBestPost');
 
 module.exports = function (app, passport){
 
-app.get('/about', function (req, res){
-	res.render('about.ejs');
-})
+app.get('/hazzul/:id', function(req, res){
+	var postId = req.postId;
+	postId.usernumClicks += Math.floor((Math.random() * 10) + 1);
+	postId.myClicks += 1;
+	postId.save(function (err, data){
+		if (err) res.send(err)
+			else{
+				console.log('accessed')
+			}
+	})
+
+});
+
+app.post('/:id/:page/hazzul', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/fmkorea', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/fmkorea/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/dogdrip', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/dogdrip/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/ygosu', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/ygosu/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/torrent', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/torrent/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/pann', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/pann/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/reple', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/reple/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+
+app.post('/:id/:page/blogspot', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/blogspot/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/instiz', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/instiz/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
+
+app.post('/:id/:page/mhc', function (req, res){
+	var pageNum = req.params.page;
+	console.log(pageNum)
+	issueModel.find({_id: req.params.id}, function(err, item){
+		if(err) return next("error finding post.");
+		item[0].userComments.push({userPost : req.body.userPost})
+		item[0].save(function(err, data){
+			if (err) res.send(err)
+			else
+				res.redirect('/mhc/?page=' + pageNum)
+		});
+	})
+
+}) //app.post
 
 app.get('/', function (req, res){
-
 
 if(req.query.search){
 
